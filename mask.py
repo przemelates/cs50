@@ -1,7 +1,5 @@
 import sys
 import tensorflow as tf
-tf.experimental.numpy.experimental_enable_numpy_behavior()
-
 from PIL import Image, ImageDraw, ImageFont
 from transformers import AutoTokenizer, TFBertForMaskedLM
 
@@ -58,7 +56,7 @@ def get_mask_token_index(mask_token_id, inputs):
 
 
 def get_color_for_attention_score(attention_score):
-    score = 255*round(attention_score)
+    score = round(255*attention_score)
     return (score,score,score)
     """
     Return a tuple of three integers representing a shade of gray for the
